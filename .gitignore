@@ -1,0 +1,7 @@
+node_modules/
+.env
+token-analytics.json
+token-analytics-backup.json
+client/node_modules/
+client/dist/
+.DS_Store

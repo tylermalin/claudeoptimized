@@ -1,0 +1,41 @@
+{
+  "name": "claude-token-optimizer",
+  "version": "1.0.0",
+  "description": "Automatic token minimization tool for Claude API with model selection, caching, batching, and streaming",
+  "main": "claude-token-optimizer.js",
+  "type": "module",
+  "scripts": {
+    "start": "node claude-token-optimizer.js",
+    "examples": "node examples.js",
+    "test": "node test.js",
+    "demo": "node demo.js",
+    "analytics": "node analytics.js"
+  },
+  "keywords": [
+    "anthropic",
+    "claude",
+    "api",
+    "token-optimization",
+    "cost-reduction",
+    "streaming",
+    "caching",
+    "batch-processing"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.21.0"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "homepage": ""
+}
