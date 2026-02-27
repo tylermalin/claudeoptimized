@@ -11,6 +11,7 @@ Intelligently route requests to the most cost-effective Claude model, automatica
 - **📦 Batch Processing** - 50% token discount for bulk requests
 - **🔄 Streaming Support** - Real-time outputs for long-form content
 - **📊 Usage Analytics** - Track tokens, costs, and efficiency per model
+- **💻 Premium Chat App** - Modern, terminal-inspired local web interface
 - **⚙️ Zero Configuration** - Works out of the box with sensible defaults
 
 ## 📊 Token Savings Breakdown
@@ -35,22 +36,30 @@ With optimizer:
   Total: 7,500 tokens (62.5% savings!)
 ```
 
-## 🚀 Quick Start
-
 ### 1. Installation (60 seconds)
 
 ```bash
-# Clone or download this project
-cd claude-token-optimizer
-
-# Install dependencies
+# Install root dependencies (Express server)
 npm install
 
-# Set your API key
-export ANTHROPIC_API_KEY="sk-ant-..."
+# Install client dependencies (React App)
+cd client && npm install
+cd ..
 ```
 
-### 2. First Call
+### 2. Launch Optimized Chat App
+
+```bash
+# Start backend server
+node server.js
+
+# In a new terminal, start frontend
+cd client && npm run dev
+```
+
+Explore the UI at `http://localhost:5173/` 🚀
+
+### 3. Programmatic Usage
 
 ```javascript
 const ClaudeTokenOptimizer = require("./claude-token-optimizer");
@@ -389,12 +398,14 @@ npm run demo
 
 ```text
 claude-token-optimizer/
-├── claude-token-optimizer.js      # Main implementation
+├── claude-token-optimizer.js      # Core optimization logic
+├── server.js                        # Express API backend
+├── client/                          # React/Vite frontend app
 ├── examples.js                     # 10+ usage examples
+├── demo.js                         # Verification script
 ├── QUICK_REFERENCE.md             # 5-minute cheat sheet
 ├── SETUP.md                       # Detailed documentation
-├── package.json                   # Dependencies
-├── .env.template                  # Environment template
+├── package.json                   # Backend dependencies
 └── README.md                      # This file
 ```
 

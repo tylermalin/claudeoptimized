@@ -3,9 +3,10 @@
 ## 🚀 Installation (30 seconds)
 
 ```bash
-npm install @anthropic-ai/sdk
-export ANTHROPIC_API_KEY="sk-ant-..."
-cp claude-token-optimizer.js .
+git clone https://github.com/tylermalin/claudeoptimized.git
+cd claudeoptimized
+npm install
+cd client && npm install
 ```
 
 ## 💻 Basic Usage
@@ -30,6 +31,7 @@ console.log(res.model);             // Which model was used
 | Complex reasoning, hard problems | Opus | 6x | Slow |
 
 **Auto-selection based on:**
+
 - Prompt length
 - Complexity keywords
 - Your `complexity` parameter
@@ -49,12 +51,14 @@ new ClaudeTokenOptimizer({
 ## 💡 Common Patterns
 
 ### Pattern 1: Simple Query
+
 ```javascript
 const res = await opt.optimizedCall("What is AI?");
 // → Uses Haiku, ~50 tokens
 ```
 
 ### Pattern 2: Complex Analysis
+
 ```javascript
 const res = await opt.optimizedCall(
   "Design a complex system...",
@@ -64,6 +68,7 @@ const res = await opt.optimizedCall(
 ```
 
 ### Pattern 3: Streaming Large Output
+
 ```javascript
 const res = await opt.optimizedCall(
   "Write a long article...",
@@ -73,12 +78,14 @@ const res = await opt.optimizedCall(
 ```
 
 ### Pattern 4: Cached Response (Zero Tokens!)
+
 ```javascript
 await opt.optimizedCall("What is Python?");     // 120 tokens
 await opt.optimizedCall("What is Python?");     // 0 tokens (cached!)
 ```
 
 ### Pattern 5: Batch Processing (50% Off)
+
 ```javascript
 const res = await opt.batchProcess([
   { prompt: "Translate to Spanish: Hello" },
@@ -89,6 +96,7 @@ const res = await opt.batchProcess([
 ```
 
 ### Pattern 6: Force Specific Model
+
 ```javascript
 const res = await opt.optimizedCall(query, {
   forceModel: "claude-haiku-4-5-20251001"
@@ -126,6 +134,7 @@ Opus model:    $15.00 per 1M input / $75.00 per 1M output
 ## 🎯 Best Practices
 
 ### ✓ DO
+
 - Let auto-selection pick the model
 - Use streaming for long outputs
 - Cache repeated queries
@@ -133,6 +142,7 @@ Opus model:    $15.00 per 1M input / $75.00 per 1M output
 - Monitor with `getReport()`
 
 ### ✗ DON'T
+
 - Force expensive models for simple tasks
 - Repeat identical queries without caching
 - Process 100+ requests sequentially
@@ -154,6 +164,7 @@ await opt.optimizedCall(prompt, {
 ## 📈 Optimization Example
 
 **Before (No Optimization):**
+
 ```javascript
 for (let i = 0; i < 100; i++) {
   await client.messages.create({ model: "claude-opus" });
@@ -162,6 +173,7 @@ for (let i = 0; i < 100; i++) {
 ```
 
 **After (With Optimizer):**
+
 ```javascript
 const requests = [...].map(q => ({ prompt: q }));
 await optimizer.batchProcess(requests);
@@ -192,10 +204,10 @@ await optimizer.batchProcess(requests);
 
 ## 📚 Resources
 
-- API Docs: https://docs.claude.com
-- Tokens Guide: https://docs.claude.com/en/docs/guides/tokens
-- Batch API: https://docs.claude.com/en/docs/guides/batch-processing
-- Status: https://status.anthropic.com
+- API Docs: <https://docs.claude.com>
+- Tokens Guide: <https://docs.claude.com/en/docs/guides/tokens>
+- Batch API: <https://docs.claude.com/en/docs/guides/batch-processing>
+- Status: <https://status.anthropic.com>
 
 ## 💬 Common Questions
 

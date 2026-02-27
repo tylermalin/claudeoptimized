@@ -21,26 +21,41 @@ A production-ready tool to automatically minimize token usage when using the Cla
 ### Setup Steps
 
 ```bash
-# 1. Create project directory
-mkdir claude-token-optimizer
-cd claude-token-optimizer
+# 1. Clone the repository
+git clone https://github.com/tylermalin/claudeoptimized.git
+cd claudeoptimized
 
-# 2. Initialize Node project
-npm init -y
+# 2. Install backend dependencies
+npm install
 
-# 3. Install Anthropic SDK
-npm install @anthropic-ai/sdk
+# 3. Install frontend dependencies
+cd client && npm install
+cd ..
 
-# 4. Set up API key
-export ANTHROPIC_API_KEY="your-api-key-here"
-
-# 5. Copy the optimizer file
-cp claude-token-optimizer.js .
+# 4. Set up environment
+cp .env.template .env
+# Edit .env and add your ANTHROPIC_API_KEY
 ```
 
 ## 🚀 Quick Start
 
-### Basic Usage
+### 1. Launch the Chat App
+
+The easiest way to use the optimizer is via the built-in terminal UI:
+
+```bash
+# Start backend
+node server.js
+
+# Start frontend (in a separate terminal)
+cd client && npm run dev
+```
+
+Open `http://localhost:5173/` to start chatting!
+
+### 2. Programmatic Usage
+
+You can also use the optimizer directly in your code:
 
 ```javascript
 const ClaudeTokenOptimizer = require("./claude-token-optimizer");
